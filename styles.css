@@ -1,0 +1,122 @@
+:root {
+  --primary: #075985;
+  --primary-dark: #0c4a6e;
+  --background: #e0f2fe;
+  --surface: #ffffff;
+  --border: #7dd3fc;
+  --ink: #0f172a;
+  --muted: #334155;
+  font-size: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: linear-gradient(180deg, #f8fcff 0%, var(--background) 100%);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.high-contrast { --primary: #003b5c; --background: #ffffff; --border: #075985; }
+body.font-large { font-size: 21px; }
+body.font-x-large { font-size: 24px; }
+
+button, textarea, select { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.app-header {
+  margin-bottom: 1rem;
+  padding: 1.25rem 1.1rem;
+  border-radius: 22px;
+  background: var(--primary-dark);
+  color: white;
+}
+
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.app-header h1 { margin: 0; font-size: 2rem; }
+.app-header p { margin: .35rem 0 0; }
+.header-subtitle { opacity: .9; }
+.eyebrow { font-size: .8rem; opacity: .9; text-transform: uppercase; letter-spacing: .08em; }
+.settings-button { width: 3rem; height: 3rem; border: 0; border-radius: 50%; background: white; font-size: 1.3rem; }
+
+.tabs { display: none; }
+
+.tab {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--primary-dark);
+  padding: .6rem .75rem;
+  font-weight: 700;
+}
+
+.tab.active, .tab:focus-visible { background: var(--primary); color: white; }
+.back-button { margin-bottom: 1rem; padding: .4rem 0; border: 0; background: transparent; color: var(--primary-dark); font-weight: 700; }
+.screen { display: none; }
+.screen.active { display: block; }
+
+.card {
+  margin: .75rem 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+h2 { margin-top: 0; }
+p { line-height: 1.5; }
+label { display: block; margin: .8rem 0 .35rem; font-weight: 700; }
+
+textarea, select {
+  width: 100%;
+  border: 2px solid #94a3b8;
+  border-radius: 12px;
+  background: white;
+  color: var(--ink);
+  padding: .75rem;
+}
+
+textarea:focus, select:focus, button:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+.action-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+.action-button, .large-button, .secondary-button {
+  min-height: 3.2rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: .75rem;
+  font-weight: 700;
+}
+
+.action-button { min-height: 7rem; display: flex; flex-direction: column; justify-content: center; background: var(--surface); color: var(--primary-dark); font-size: 1.05rem; }
+.action-button.primary, .large-button.primary { background: var(--primary); color: white; }
+.action-button:last-child { grid-column: 1 / -1; }
+.action-icon { display: block; font-size: 1.5rem; margin-bottom: .25rem; }
+.large-button, .secondary-button { width: 100%; margin-top: .75rem; }
+.secondary-button { background: #e0f2fe; color: var(--primary-dark); }
+.notice { margin-top: 1rem; padding: .8rem; border-radius: 12px; background: #dbeafe; color: var(--muted); }
+.status { min-height: 1.5rem; color: var(--muted); }
+.phrase-list { display: grid; gap: .6rem; margin-top: .8rem; }
+.phrase-button { text-align: left; background: white; color: var(--ink); }
+.selected-phrase { margin-top: 1rem; padding: 1rem; border-radius: 12px; background: #dcfce7; font-weight: 700; }
+.switch-row { display: flex; align-items: center; gap: .65rem; margin-top: 1rem; }
+.switch-row input { width: 1.3rem; height: 1.3rem; }
+footer { margin-top: 1.5rem; color: var(--muted); text-align: center; font-size: .85rem; }
+
+@media (max-width: 480px) {
+  .app-shell { padding: .7rem .7rem 1.5rem; }
+  .app-header h1 { font-size: 1.7rem; }
+  .action-grid { grid-template-columns: 1fr; }
+  .action-button:last-child { grid-column: auto; }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "ComunicaIA",
+  "short_name": "ComunicaIA",
+  "description": "Herramienta accesible para facilitar la comunicación.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8fcff",
+  "theme_color": "#0c4a6e",
+  "lang": "es",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

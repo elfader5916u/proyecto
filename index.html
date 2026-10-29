@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c4a6e">
+  <meta name="description" content="Aplicación accesible para facilitar la comunicación.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>ComunicaIA</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="header-row">
+        <div>
+          <p class="eyebrow">Comunicación fácil</p>
+          <h1>ComunicaIA</h1>
+        </div>
+        <button class="settings-button" data-go="configuracion" aria-label="Abrir ajustes">⚙️</button>
+      </div>
+      <p class="header-subtitle">Elige una opción para comenzar</p>
+    </header>
+
+    <nav class="tabs" aria-label="Secciones principales">
+      <button class="tab active" data-screen="inicio">Inicio</button>
+      <button class="tab" data-screen="voz-texto">Voz a texto</button>
+      <button class="tab" data-screen="texto-voz">Texto a voz</button>
+      <button class="tab" data-screen="frases">Frases</button>
+      <button class="tab" data-screen="configuracion">Ajustes</button>
+    </nav>
+
+    <section id="inicio" class="screen active" aria-labelledby="inicio-title">
+      <div class="card intro-card">
+        <h2 id="inicio-title">¿Qué necesitas hacer?</h2>
+        <p>Selecciona una de estas opciones:</p>
+      </div>
+      <div class="action-grid">
+        <button class="action-button primary" data-go="voz-texto">
+          <span class="action-icon" aria-hidden="true">🎙️</span>
+          <span>Voz a texto</span>
+        </button>
+        <button class="action-button primary" data-go="texto-voz">
+          <span class="action-icon" aria-hidden="true">🔊</span>
+          <span>Texto a voz</span>
+        </button>
+        <button class="action-button" data-go="frases">
+          <span class="action-icon" aria-hidden="true">⚡</span>
+          <span>Frases rápidas</span>
+        </button>
+      </div>
+      <div class="notice">Consejo: usa Ajustes para aumentar el texto y activar el alto contraste.</div>
+    </section>
+
+    <section id="voz-texto" class="screen" aria-labelledby="voz-texto-title">
+      <div class="card">
+        <button class="back-button" data-go="inicio">← Volver al inicio</button>
+        <h2 id="voz-texto-title">Voz a texto</h2>
+        <p>Habla y tu mensaje aparecerá escrito.</p>
+        <button id="start-listening" class="large-button primary">🎙️ Iniciar grabación</button>
+        <p id="listening-status" class="status" role="status">El micrófono está listo.</p>
+        <label for="transcription">Texto reconocido</label>
+        <textarea id="transcription" class="result-text" rows="5" readonly placeholder="Aquí aparecerá la transcripción..."></textarea>
+        <button id="clear-transcription" class="secondary-button">Borrar resultado</button>
+      </div>
+    </section>
+
+    <section id="texto-voz" class="screen" aria-labelledby="texto-voz-title">
+      <div class="card">
+        <button class="back-button" data-go="inicio">← Volver al inicio</button>
+        <h2 id="texto-voz-title">Texto a voz</h2>
+        <p>Escribe un mensaje y el celular lo dirá en voz alta.</p>
+        <label for="speech-text">Mensaje</label>
+        <textarea id="speech-text" rows="5" placeholder="Ejemplo: ¿Necesitas ayuda?"></textarea>
+        <button id="speak-text" class="large-button primary">🔊 Reproducir mensaje</button>
+        <button id="stop-speech" class="secondary-button">Detener voz</button>
+        <p id="speech-status" class="status" role="status"></p>
+      </div>
+    </section>
+
+    <section id="frases" class="screen" aria-labelledby="frases-title">
+      <div class="card">
+        <button class="back-button" data-go="inicio">← Volver al inicio</button>
+        <h2 id="frases-title">Frases rápidas</h2>
+        <p>Toca una frase para mostrarla y escucharla.</p>
+        <label for="phrase-category">Categoría</label>
+        <select id="phrase-category"></select>
+        <div id="phrase-list" class="phrase-list"></div>
+        <div id="selected-phrase" class="selected-phrase" role="status" hidden></div>
+        <button id="speak-phrase" class="large-button primary" hidden>🔊 Reproducir frase</button>
+      </div>
+    </section>
+
+    <section id="configuracion" class="screen" aria-labelledby="configuracion-title">
+      <div class="card">
+        <button class="back-button" data-go="inicio">← Volver al inicio</button>
+        <h2 id="configuracion-title">Configuración</h2>
+        <label for="font-size">Tamaño del texto</label>
+        <select id="font-size">
+          <option value="normal">Normal</option>
+          <option value="large" selected>Grande</option>
+          <option value="x-large">Muy grande</option>
+        </select>
+        <label class="switch-row">
+          <input id="high-contrast" type="checkbox" checked>
+          <span>Activar alto contraste</span>
+        </label>
+        <div class="notice">Las preferencias se guardan en este dispositivo.</div>
+      </div>
+    </section>
+
+    <footer>ComunicaIA · Prototipo académico</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
