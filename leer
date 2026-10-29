@@ -1,0 +1,80 @@
+# ComunicaIA
+
+Prototipo móvil responsive para facilitar la comunicación entre personas con
+dificultades auditivas, dificultades del habla y personas oyentes.
+
+## Funciones
+
+- Voz a texto mediante el micrófono del navegador.
+- Texto a voz en español.
+- Frases rápidas organizadas por categorías.
+- Interfaz con botones grandes, alto contraste y texto legible.
+
+## Tecnología y ejecución
+
+La aplicación ahora es una **PWA (Progressive Web App)** hecha con HTML, CSS y
+JavaScript. No utiliza Streamlit ni necesita Python. Para probarla localmente:
+
+```powershell
+python -m http.server 8000
+```
+
+Después abre `http://localhost:8000` en el navegador.
+
+## Publicación en internet
+
+Puedes publicar estos archivos gratuitamente en [GitHub Pages](https://pages.github.com/),
+[Netlify](https://www.netlify.com/) o [Vercel](https://vercel.com/). La opción
+más sencilla es GitHub Pages:
+
+1. Crea un repositorio público en GitHub.
+2. Sube `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, `sw.js` y
+   la carpeta `icons`.
+3. En el repositorio, entra a **Settings > Pages**.
+4. Selecciona la rama principal y la carpeta raíz.
+5. GitHub generará un enlace HTTPS para la aplicación.
+
+Ese enlace será el acceso directo que puedes compartir por WhatsApp, correo o
+un código QR. La aplicación estará disponible desde distintas redes sin
+necesidad de dejar encendido el computador de desarrollo.
+
+## Agregar al celular
+
+La aplicación puede instalarse como acceso directo desde el navegador. No es
+un APK de Play Store ni una aplicación publicada en App Store, pero se abre
+como una aplicación independiente:
+
+### Android
+
+1. Abre el enlace público en Chrome.
+2. Presiona el menú de tres puntos.
+3. Selecciona **Agregar a pantalla principal** o **Instalar aplicación**.
+4. Confirma el nombre `ComunicaIA`.
+
+### iPhone
+
+1. Abre el enlace público en Safari.
+2. Presiona **Compartir**.
+3. Selecciona **Agregar a pantalla de inicio**.
+4. Confirma con **Agregar**.
+
+El ícono funcionará como un acceso directo y abrirá la aplicación desde
+cualquier red con internet. El micrófono debe autorizarse cuando el navegador
+lo solicite. La instalación PWA requiere un enlace HTTPS, como el que entrega
+GitHub Pages, Netlify o Vercel.
+
+## Consideraciones para la sustentación
+
+- La app usa el reconocimiento y la síntesis de voz del navegador. La
+  compatibilidad puede variar entre Chrome, Safari y otros navegadores.
+- Para probar voz a texto en computador, usa Chrome o Edge y abre la aplicación
+  con `http://localhost:8000`. En algunos teléfonos Safari no ofrece la API de
+  reconocimiento; en ese caso usa Chrome para Android o será necesario agregar
+  un servicio de reconocimiento en el servidor.
+- El reconocimiento de voz normalmente requiere internet y permiso de
+  micrófono. La síntesis de voz puede funcionar sin internet si el celular
+  tiene una voz instalada.
+- No debe guardarse información privada ni credenciales en el repositorio.
+- Si se requiere un APK o una aplicación publicada en Play Store/App Store, se
+  deberá crear posteriormente un empaquetado móvil nativo con herramientas como
+  Capacitor o Flutter.
